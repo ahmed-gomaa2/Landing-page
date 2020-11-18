@@ -109,3 +109,135 @@ body{
 .about__text {
     color: black;
 }
+
+
+/* ******************** */
+/* Skills Styles */
+/* ******************** */
+
+.skills {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background: darkslategray;
+    /*align-items: center;*/
+    justify-content: center;
+}
+
+.skills__container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.skills p {
+    width: 50%;
+    color: white;
+    list-style: upper-latin;
+}
+
+.skills h1 {
+    font-size: 30px;
+    font-style: italic;
+    font-family: Andalus;
+}
+
+
+/* ******************** */
+/* Projects Styles */
+/* ******************** */
+
+.projects {
+    display: flex;
+    flex-direction: column;
+}
+
+.projects__container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.projects__item {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 20%;
+    min-height: 350px;
+    background: aquamarine;
+    margin: 10px;
+    padding: 10px;
+    transition: all ease-in-out .2s;
+}
+
+.projects__item:hover {
+    transform: translateY(-10px);
+}
+
+.project__top {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.project__top i {
+    color: black;
+    transition: all ease-in-out .2s;
+}
+
+.project__top i:hover {
+    color: darkslategray;
+}
+
+@media only screen and (max-width: 817px) {
+    .projects__item {
+        width: 40%;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .projects__item{
+        width: 80%;
+    }
+}
+
+/* **************** */
+/* Contacts styles */
+/* **************** */
+
+.footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer__links {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.footer__links a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    border-radius: 50%;
+    background: darkslategray;
+    color: white;
+    text-decoration: none;
+    margin-right: 10px;
+    transition: all ease-in-out .3s;
+}
+
+.footer__links a:hover {
+    transform: scale(1.2);
+    background: white;
+    color: darkslategray;
+}
