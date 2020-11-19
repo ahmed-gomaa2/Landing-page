@@ -1,55 +1,52 @@
-/**
- *
- * Manipulating the DOM exercise.
- * Exercise programmatically builds navigation,
- * scrolls to anchors from navigation,
- * and highlights section in viewport upon scrolling.
- *
- * Dependencies: None
- *
- * JS Version: ES2015/ES6
- *
- * JS Standard: ESlint
- *
- */
+const navbarLinks = document.getElementsByClassName('navbar__links');
+const burger = document.querySelector('.header__menu');
+const sidebar = document.querySelector('.navbar__right');
 
-/**
- * Define Global Variables
- *
- */
+//****************************
+//getting the section position from the top.
+//****************************
 
+const getPosition = (element) => {
+    return element.getBoundingClientRect().y + window.scrollY;
+}
 
-/**
- * End Global Variables
- * Start Helper Functions
- *
- */
+//********************
+//styling the nav links when its active.
+//********************
 
+window.addEventListener('scroll', () => {
+    let fromTop = window.scrollY;
 
+    for(let i = 0; i < navbarLinks.length; i++){
+        let section = document.querySelector(navbarLinks[i].hash);
 
-/**
- * End Helper Functions
- * Begin Main Functions
- *
- */
+        if (
+            section.offsetTop <= fromTop &&
+            section.offsetTop + section.offsetHeight > fromTop
+        ) {
+            navbarLinks[i].classList.add("active");
+        } else {
+            navbarLinks[i].classList.remove("active");
+        }
+    }
+})
 
-// build the nav
+//******************
+// handling the navbar links clicks.
+//******************
 
+for(let i = 0; i < navbarLinks.length; i++) {
+    navbarLinks[i].addEventListener('click', (e) => {
+        e.preventDefault();
+        const section = document.querySelector(`${navbarLinks[i].hash}`);
+        window.scroll({top: getPosition(section), behavior: "smooth"});
+    })
+}
 
-// Add class 'active' to section when near top of viewport
+//******************
+// handling the burger menu click.
+//******************
 
-
-// Scroll to anchor ID using scrollTO event
-
-
-/**
- * End Main Functions
- * Begin Events
- *
- */
-
-// Build menu
-
-// Scroll to section on link click
-
-// Set sections as active
+burger.addEventListener('click', () => {
+    sidebar.classList.toggle('navbar__out')
+})
