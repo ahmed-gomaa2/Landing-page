@@ -95,8 +95,6 @@ body{
     transition: all 0.3s ease-in;
 }
 
-
-
 @media only screen and (max-width: 500px) {
     .header__menu {
         display: block;
@@ -136,7 +134,7 @@ body{
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    height: calc(100vh - 60px);
+    height: 100vh;
     padding: 10px;
     position: relative;
 }
@@ -174,8 +172,6 @@ body{
     display: flex;
     flex-direction: column;
     height: 100vh;
-    background: darkslategray;
-    /*align-items: center;*/
     justify-content: center;
 }
 
@@ -187,7 +183,6 @@ body{
 
 .skills p {
     width: 50%;
-    color: white;
     list-style: upper-latin;
 }
 
@@ -268,6 +263,7 @@ body{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    height: 100vh;
 }
 
 .footer__links {
@@ -299,3 +295,12 @@ body{
     border: 1px solid black;
 }
 
+
+/*************************/
+/* the section active class*/
+/*************************/
+
+.section__active {
+    background: forestgreen;
+    transition: all ease-in-out .2s;
+}

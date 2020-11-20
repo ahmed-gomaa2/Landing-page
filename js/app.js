@@ -3,6 +3,8 @@
 //****************************
 const navbar = document.querySelector('.navbar__menu')
 const myDocFrag = document.createDocumentFragment();
+const sectionsDocList = document.getElementsByClassName('sections');
+
 
 // creating left nav
 const leftList = document.createElement('ul');
@@ -15,25 +17,12 @@ myDocFrag.appendChild(leftList);
 const rightList = document.createElement('ul');
 rightList.setAttribute('class', 'navbar__right');
 
-const aboutItem = document.createElement('li');
-aboutItem.innerHTML = '<a id="about__btn" class="navbar__links" href="#about">about</a>';
+for(let i = 0; i < sectionsDocList.length; i++) {
+    const navItem = document.createElement('li')
+    navItem.innerHTML = `<a class="navbar__links" href=#${sectionsDocList[i].id}>${sectionsDocList[i].id}</a>`
 
-rightList.appendChild(aboutItem);
-
-const skillsItem = document.createElement('li');
-skillsItem.innerHTML = '<a id="skills__btn" class="navbar__links" href="#skills">skills</a>';
-
-rightList.appendChild(skillsItem);
-
-const projectsItem = document.createElement('li');
-projectsItem.innerHTML = '<a id="projects__btn" class="navbar__links" href="#projects">Projects</a>';
-
-rightList.appendChild(projectsItem);
-
-const contactsItem = document.createElement('li');
-contactsItem.innerHTML = '<a id="contacts__btn" class="navbar__links" href="#contacts">Contacts</a>'
-
-rightList.appendChild(contactsItem);
+    rightList.appendChild(navItem);
+}
 
 myDocFrag.appendChild(rightList);
 
@@ -82,8 +71,10 @@ window.addEventListener('scroll', () => {
             section.offsetTop + section.offsetHeight > fromTop
         ) {
             navbarLinks[i].classList.add("active");
+            section.classList.add('section__active');
         } else {
             navbarLinks[i].classList.remove("active");
+            section.classList.remove('section__active');
         }
     }
 })
